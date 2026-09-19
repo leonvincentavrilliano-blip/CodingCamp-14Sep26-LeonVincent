@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetKu — Preview</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="site-header">
+    <h1>💰 BudgetKu</h1>
+    <button id="theme-toggle">🌙 Mode Gelap</button>
+  </header>
+
+  <div id="balance-card">
+    <p class="balance-label">Total Pengeluaran</p>
+    <p id="balance-display" class="balance-display">Rp 0</p>
+    <div id="balance-sub">
+      <span id="balance-count">0 transaksi</span>
+      <span id="balance-budget-info"></span>
+    </div>
+  </div>
+
+  <section class="screen active" id="screen-tambah">
+    <div class="card">
+      <h2 class="card-title">➕ Tambah Transaksi</h2>
+      
+      <label for="item-name">Nama Item</label>
+      <input id="item-name" placeholder="contoh: Cilok, Bensin…">
+      
+      <div class="form-group">
+        <label for="amount">Harga Satuan (Rp)</label>
+        <input id="amount" type="number" min="1" placeholder="contoh: 5000">
+      </div>
+
+      <div class="form-group">
+        <label for="qty">Jumlah</label>
+        <input id="qty" type="number" value="1" min="1">
+      </div>
+      
+      <div id="price-preview">
+        Total: <strong id="price-preview-val">Rp 0</strong>
+      </div>
+      
+      <label for="category">Kategori</label>
+      <select id="category">
+        <option>Makanan</option>
+        <option>Transportasi</option>
+        <option>Kebutuhan Pribadi</option>
+        <option>Belanjaan</option>
+        <option>Obat Obatan</option>
+        <option>Yang Lainnya</option>
+      </select>
+      
+      <div id="budget-preset-row">
+        <label>Pakai Anggaran <span class="label-hint">(opsional)</span></label>
+        <div id="preset-selector"></div>
+        <p id="preset-hint"></p>
+      </div>
+      
+      <button id="add-btn">＋ Tambah Transaksi</button>
+    </div>
+    
+    <div class="card">
+      <div class="card-title-row">
+        <h2 class="card-title">🎯 Kelola Anggaran</h2>
+        <button id="add-budget-btn" class="btn-outline">＋ Buat</button>
+      </div>
+      <p class="card-desc">
+        Coba pilih <b>Jajan Mingguan</b>, lalu tambah transaksi Makanan. 
+        Angka Terpakai, %, progress bar, dan Sisa akan langsung naik.
+      </p>
+      <div id="budget-list">
+        <p class="empty-hint">Belum ada anggaran.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-transaksi">
+    <div class="card">
+      <h2 class="card-title">📋 Riwayat Transaksi</h2>
+      <div id="sort-controls">
+        <span class="sort-label">Urutkan:</span>
+        <button class="sort-btn active" data-sort="date">Tanggal</button>
+        <button class="sort-btn" data-sort="amount">Nominal</button>
+        <button class="sort-btn" data-sort="category">Kategori</button>
+      </div>
+      <div id="tx-list">
+        <p class="empty-hint">Belum ada transaksi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-grafik">
+    <div class="card">
+      <h2 class="card-title">📊 Ringkasan Anggaran</h2>
+      <div id="budget-summary">
+        <p class="empty-hint">Belum ada data anggaran.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav id="bottom-nav">
+    <button class="nav-btn active" data-screen="tambah">
+      <span class="nav-icon">➕</span>
+      <span class="nav-label">Tambah</span>
+    </button>
+    <button class="nav-btn" data-screen="transaksi">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">Transaksi</span>
+    </button>
+    <button class="nav-btn" data-screen="grafik">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Grafik</span>
+    </button>
+  </nav>
+
+  <div id="modal-backdrop" class="hidden">
+    <div id="modal-box">
+      <div id="modal-header">
+        <h3>Buat Anggaran</h3>
+        <button id="modal-close">✕</button>
+      </div>
+      
+      <input type="hidden" id="budget-edit-id">
+      
+      <label for="budget-name">Nama Anggaran</label>
+      <input id="budget-name" placeholder="contoh: Jajan Minggu Ini">
+      
+      <label for="budget-category">Kategori</label>
+      <select id="budget-category">
+        <option>Makanan</option>
+        <option>Transportasi</option>
+        <option>Kebutuhan Pribadi</option>
+        <option>Belanjaan</option>
+        <option>Obat Obatan</option>
+        <option>Yang Lainnya</option>
+      </select>
+      
+      <label for="budget-limit-input">Limit Anggaran (Rp)</label>
+      <input id="budget-limit-input" type="number" min="1" placeholder="contoh: 100000">
+      
+      <div id="modal-actions">
+        <button id="modal-cancel" class="btn-outline">Batal</button>
+        <button id="modal-save">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

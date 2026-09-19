@@ -1,0 +1,397 @@
+/* Reset dasar */
+* {
+  box-sizing: border-box;
+}
+
+/* Variabel warna */
+:root {
+  --bg: #f4f7fb;
+  --card: #fff;
+  --text: #172033;
+  --muted: #687386;
+  --line: #e4e9f0;
+  --primary: #4f46e5;
+  --track: #e9edf4;
+}
+
+[data-theme="dark"] {
+  --bg: #101522;
+  --card: #182033;
+  --text: #f4f7ff;
+  --muted: #aab4c7;
+  --line: #2b354b;
+  --primary: #818cf8;
+  --track: #293247;
+}
+
+/* Dasar halaman */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+/* Header */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 18px 20px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+#theme-toggle,
+.btn-outline,
+.preset-chip,
+.sort-btn {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+/* Kartu saldo */
+#balance-card {
+  margin: 18px auto;
+  max-width: 760px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 24px #4f46e52b;
+}
+
+.balance-label {
+  margin: 0;
+  opacity: .8;
+}
+
+.balance-display {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 4px 0;
+}
+
+.balance-sub {
+  display: flex;
+  gap: 12px;
+  font-size: .9rem;
+  opacity: .9;
+}
+
+/* Layar dan kartu */
+.screen {
+  display: none;
+  max-width: 760px;
+  margin: auto;
+  padding: 0 16px 100px;
+}
+
+.screen.active {
+  display: block;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 12px #00000008;
+}
+
+.card-title {
+  margin: 0 0 16px;
+  font-size: 1.08rem;
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-desc,
+.empty-hint,
+.label-hint {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Formulir */
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 650;
+  font-size: .9rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  outline: none;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+#price-preview {
+  margin: 12px 0;
+  padding: 11px;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+#add-btn,
+#modal-save {
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 700;
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* Preset anggaran */
+#preset-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preset-chip {
+  font-size: .82rem;
+}
+
+.preset-chip.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+#preset-hint {
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+/* Item anggaran */
+.budget-item {
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 13px;
+  margin-top: 10px;
+}
+
+.budget-item-info {
+  min-width: 0;
+}
+
+.budget-item-name {
+  font-weight: 700;
+}
+
+.budget-item-detail {
+  font-size: .82rem;
+  color: var(--muted);
+  margin: 4px 0 8px;
+}
+
+.budget-progress-track {
+  height: 9px;
+  background: var(--track);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.budget-progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: #22c55e;
+}
+
+.fill-warn {
+  background: #f59e0b;
+}
+
+.fill-over {
+  background: #ef4444;
+}
+
+.budget-item-actions {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.btn-icon {
+  background: transparent;
+  padding: 5px;
+}
+
+/* Kontrol urutan */
+#sort-controls {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.sort-label {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.sort-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Item transaksi */
+.tx-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tx-item:last-child {
+  border-bottom: 0;
+}
+
+.tx-name {
+  font-weight: 700;
+}
+
+.tx-meta {
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* Ringkasan anggaran */
+#budget-summary .budget-item {
+  margin-top: 12px;
+}
+
+/* Navigasi bawah */
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-btn {
+  flex: 1;
+  max-width: 250px;
+  padding: 10px 5px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.nav-btn.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.nav-icon,
+.nav-label {
+  display: block;
+}
+
+.nav-label {
+  font-size: .75rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Modal */
+#modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+#modal-box {
+  width: min(440px, 100%);
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 20px 50px #0006;
+}
+
+#modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#modal-header h3 {
+  margin: 0;
+}
+
+#modal-close {
+  background: transparent;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+#modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+#modal-actions>* {
+  flex: 1;
+}
+
+/* Responsif */
+@media (max-width: 520px) {
+  .balance-display {
+    font-size: 1.7rem;
+  }
+}
